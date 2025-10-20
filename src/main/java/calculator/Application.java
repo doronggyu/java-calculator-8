@@ -26,11 +26,21 @@ public class Application {
         String[] numbers = numberSection.split(delimiter);
         int sum = 0;
 
-        for(String numList : numbers){
-            int num = Integer.parseInt(numList);
-            sum += num;
-        }
+        try{
+            for(String numList : numbers){
+                int num = Integer.parseInt(numList);
 
-        System.out.println("결과 : " + sum);
+                if(num < 0){
+                    throw new IllegalArgumentException();
+                }
+                sum += num;
+            }
+
+            System.out.println("결과 : " + sum);
+        }catch(NumberFormatException e){
+            System.out.println(e.getMessage());
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
