@@ -37,10 +37,10 @@ public class Application {
             }
 
             System.out.println("결과 : " + sum);
-        }catch(NumberFormatException e){
-            System.out.println(e.getMessage());
-        }catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
+        } catch (NumberFormatException e){
+            throw e;
+        } catch(IllegalArgumentException e){
+            throw e;
         }
     }
 }
